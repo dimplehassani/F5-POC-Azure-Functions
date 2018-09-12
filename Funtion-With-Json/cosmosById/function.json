@@ -1,0 +1,29 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "route": "cosmosById/{id}",
+      "methods": [
+        "get"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "documentDB",
+      "name": "inputDocument",
+      "databaseName": "cosmosdb-with-json",
+      "collectionName": "f5demojson",
+      "sqlQuery": "select * from c where c.id = {id}",
+      "connection": "cosmosdbwithjson_DOCUMENTDB",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
